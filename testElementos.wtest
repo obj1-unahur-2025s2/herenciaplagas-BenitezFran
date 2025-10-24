@@ -1,0 +1,34 @@
+import elementos.*
+import plagas.*
+
+describe "Elementos que son atacados por plagas" {
+
+const cuca1 = new Cucarachas(poblacion = 15, pesoPromedio = 8)
+const cuca2 = new Cucarachas(poblacion = 25, pesoPromedio = 12)
+const pulgas1 = new Pulgas(poblacion = 8)
+const pulgas2 = new Pulgas(poblacion = 18)
+const garrapatas1 = new Garrapatas(poblacion = 10)
+const mosquitos1 = new Mosquitos(poblacion = 50)
+
+const hogar1 = new Hogar(nivelDeMugre = 10, confort =50)
+const huerta1 = new Huerta(produccion=100)
+const firulais = new Mascota(salud=300)
+const pichicho = new Mascota(salud=100)
+
+
+  test "un Hogar con 10 de mugre es atacado por cucas1, mugre pasa a 17.5 " {
+
+    hogar1.recibirAtaque(cuca1)
+    assert.equals(17.5, hogar1.nivelDeMugre())
+  }
+  test "huerta1 recibe un ataque de mosquitos1" {
+    huerta1.recibirAtaque(mosquitos1)
+    assert.equals(95, huerta1.produccion())
+  }
+  test "huerta1 NO es Buena, porque el nivel minimo se seteo en 200 y la producicon es 100" {
+    
+    nivelMinimoDeProduccion.valor(200)
+    assert.notThat(huerta1.esBueno())
+  }
+
+}
